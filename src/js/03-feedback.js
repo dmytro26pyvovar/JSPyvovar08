@@ -22,7 +22,7 @@ function handleSubmit(event) {
         email: document.querySelector('input[name="email"]').value,
         message: document.querySelector('textarea[name="message"]').value,
     };
-    console.log(formData);
+    console.log(FormData);
 };
 
 localStorage.removeItem('feedback-form');
@@ -32,7 +32,7 @@ document.querySelector('textarea[name="message"]').value = '';
 
 };
 
-const form = document.querySelector('feedback-form');
-form.addEventListener('input', throttle(saveFormDataToLocalStorage, 500));
+const form = document.querySelector('.feedback-form');
+form.addEventListener('input', throttle(saveData, 500));
 form.addEventListener('submit', handleSubmit);
 
