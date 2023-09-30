@@ -32,7 +32,6 @@ function handleSubmit(event) {
         console.log(formData);
      }
 
-    console.log(formData);
 
     localStorage.removeItem('.feedback-form');
     removeString();
