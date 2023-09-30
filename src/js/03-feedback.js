@@ -14,17 +14,28 @@ function loadFormDataFromLocalStorage() {
         document.querySelector('input[name="email"]').value = formData.email; 
         document.querySelector('textarea[name="message"]').value = formData.message;
     }
-}
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadFormDataFromLocalStorage();
+});
 
 function handleSubmit(event) {
     event.preventDefault();
-    const formData = {
-        email: document.querySelector('input[name="email"]').value,
-        message: document.querySelector('textarea[name="message"]').value,
-    };
+    const emailValue = document.querySelector('input[name="email"]').value;
+    const messageValue = document.querySelector('textarea[name="message"]').value;  
+    if (emailValue !== '' && messageValue !== '') {
+         const formData = {
+            email: emailValue,
+            message: messageValue,
+        };
+        console.log(formData);
+     }
+
     console.log(formData);
 
     localStorage.removeItem('.feedback-form');
+    removeString();
 };
 
 function removeString(){
@@ -35,4 +46,4 @@ function removeString(){
 const form = document.querySelector('.feedback-form');
 form.addEventListener('input', throttle(saveData, 500));
 form.addEventListener('submit', handleSubmit);
-form.addEventListener('submit', removeString)
+// form.addEventListener('submit', removeString)
