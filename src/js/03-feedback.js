@@ -33,7 +33,7 @@ function handleSubmit(event) {
      }
 
 
-    localStorage.removeItem('.feedback-form');
+    localStorage.removeItem('feedback-form');
     removeString();
 };
 
